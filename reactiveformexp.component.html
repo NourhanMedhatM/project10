@@ -1,0 +1,31 @@
+<h1>Form FormBuilder</h1>
+<form [formGroup]="profileFormBuilder" (ngSubmit)="onSubmitbuilder()">
+
+    <label for="name"> Name: </label>
+    <input id="name" type="text" formControlName="firstName" required="Value">
+
+    <label for="Age">Age: </label>
+    <input id="Age" type="number" formControlName="lastName">
+
+    <div formGroupName="address">
+        <h2>Address</h2>
+      
+        <label for="Mail">Mail : </label>
+        <input id="Mail" type="text" formControlName="Mail">
+      
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+      
+        <label for="pass">password: </label>
+        <input id="pass" type="text" formControlName="pass">
+      
+        <label for="user">Username : </label>
+        <input id="user" type="text" formControlName="user">
+      </div>
+
+    <p>{{profileFormBuilder.value.Name}}</p>
+    <p>Form Status: {{ profileFormBuilder.status }}</p>
+
+    <p>Complete the form to enable button.</p>
+<button type="submit" [disabled]="!profileFormBuilder.value">Submit</button>
+</form>
